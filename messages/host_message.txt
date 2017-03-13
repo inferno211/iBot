@@ -1,0 +1,3 @@
+﻿Witaj na [b][server_name][/b]
+Aktualnie zalogowanych jest [b][online]/[max][/b] użytkowników online
+!

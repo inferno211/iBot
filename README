@@ -1,0 +1,31 @@
+        		iBot [v0.1 Beta]
+      Copyright (C) 2017 Piotr 'Inferno' Grencel
+ 
+      @author    : Piotr 'Inferno' Grencel
+      @website	 : http://github.com/inferno211
+      @contact   : inferno.piotr@gmail.com
+      @date      : 10-03-2017
+
+
+Automatic BOT on teamspeak3 in PHP.
+
+Functions:
+	- Advertisement
+	- Welcome message 
+	- Automatic servername
+	- Automatic host message
+	- Automatic register
+	- Admins online on channel description
+	- Usersonline
+	- Channels on server
+	- Clock
+	- Rekord online
+	- Add rank when user join the channel
+	- Bad nick protection
+	- AFK checker (Rank / move on channel)
+	- Auto poke
+	- Top 10 connections
+	- Top 10 connections time
+	- Automatic private channel
+	- Automatic delete private channel
+	- Automatic info about update

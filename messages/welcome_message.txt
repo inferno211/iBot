@@ -1,0 +1,11 @@
+Witaj [nickname] na [b][server_name][/b],
+ 
+Informacje serwerowe:
+	
+Aktualnie jest [b][online]/[max][/b] uzytkownikow online
+ 
+Informacje o Tobie:
+	
+Twoje pierwsze polaczenie z serwerem: [client_first_connected]
+Twoje ostatnie polaczenie z serwerem: [client_last_connected]
+Twoja ilosc polaczen z serwerem: [connections]
