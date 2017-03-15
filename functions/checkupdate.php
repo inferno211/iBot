@@ -1,15 +1,4 @@
 <?php
-/*
-
-        		iBot [v0.1 Beta]
-      Copyright (C) 2017 Piotr 'Inferno' Grencel
- 
-      @author    : Piotr 'Inferno' Grencel
-      @website	 : http://github.com/inferno211
-      @contact   : inferno.piotr@gmail.com
-
-*/
-
 include_once 'include/config.php';
 include_once 'include/ts3admin.class.php';
 

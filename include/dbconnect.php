@@ -1,5 +1,4 @@
 <?php
-
-$polaczenie = @new mysqli('localhost', 'pts_tsbot', 'hfAye1U3DGahPNRT', 'pts_tsbot');
-
+include_once 'include/config.php';
+$polaczenie = @new mysqli($db['host'], $db['login'], $db['password'], $db['database']);
 ?> 

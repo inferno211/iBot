@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v1.0 Beta]
+        		iBot [v0.2 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -87,6 +87,38 @@ function isInGroup($usergroups,$group) {
     else {
         return false;
     }
+}
+
+function getgroupname($grupa)
+{
+    global $query;
+    $groups = $query->getElement('data', $query->serverGroupList());
+    $groupname = '';
+    foreach($groups as $group)
+    {
+        if ($group['sgid'] == $grupa)
+        {
+            $groupname = $group['name'];
+        }
+    }
+
+    return $groupname;
+}
+
+function getchannelgroupname($grupa)
+{
+    global $query;
+    $groups = $query->getElement('data', $query->channelGroupList());
+    $groupname = '';
+    foreach($groups as $group)
+    {
+        if ($group['cgid'] == $grupa)
+        {
+            $groupname = $group['name'];
+        }
+    }
+
+    return $groupname;
 }
 
 ?>

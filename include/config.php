@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v0.1 Beta]
+        		iBot [v0.2 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -10,7 +10,7 @@
 
 */
 
-define('VERSION', '0.1 Beta');
+define('VERSION', '0.2 Beta');
 
 $teamspeak['host'] 						= '127.0.0.1';
 $teamspeak['udp'] 						= '9987';
@@ -45,7 +45,8 @@ $config['bot']['functions'] 			= array(
 										'top10connectiontime',
 										'getchannel',
 										'channelchecker',
-										'checkupdate');
+										'checkupdate',
+										'group_online');
 
 
 // REKLAMA
@@ -181,9 +182,14 @@ $config['channelchecker']['interval'] 	= array('days' => 0,'hours' => 0,'minutes
 $config['channelchecker']['data'] 		= '1970-01-01 00:00:00'; 
 
 // CHECK BOT UPDATE
-$config['checkupdate']['enabled'] 	= true;
-$config['checkupdate']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 30,'seconds' => 0);
-$config['checkupdate']['data'] 		= '1970-01-01 00:00:00';
+$config['checkupdate']['enabled'] 		= true;
+$config['checkupdate']['interval'] 		= array('days' => 0,'hours' => 0,'minutes' => 30,'seconds' => 0);
+$config['checkupdate']['data'] 			= '1970-01-01 00:00:00';
 
+// SERVER GROUP ONLINE
+// Pokazuje listę osób online z danej grupy na wybranym kanale. By pokazać listę użytkowników dodaj w "Topic" show_group=[gid] gdzie [gid] zamień na numer grupy do pokazania.
+$config['group_online']['enabled'] 		= true;
+$config['group_online']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['group_online']['data'] 		= '1970-01-01 00:00:00';
 
 ?>

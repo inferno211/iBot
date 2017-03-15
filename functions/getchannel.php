@@ -1,15 +1,4 @@
 <?php
-/*
-
-        		iBot [v1.0 Beta]
-      Copyright (C) 2017 Piotr 'Inferno' Grencel
- 
-      @author    : Piotr 'Inferno' Grencel
-      @website	 : http://github.com/inferno211
-      @contact   : inferno.piotr@gmail.com
-
-*/
-
 date_default_timezone_set('Europe/Warsaw');
 
 include_once 'include/config.php';

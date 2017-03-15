@@ -1,15 +1,4 @@
 <?php
-/*
-
-        		iBot [v1.0 Beta]
-      Copyright (C) 2017 Piotr 'Inferno' Grencel
- 
-      @author    : Piotr 'Inferno' Grencel
-      @website	 : http://github.com/inferno211
-      @contact   : inferno.piotr@gmail.com
-
-*/
-
 include_once 'include/config.php';
 include_once 'include/ts3admin.class.php';
 
@@ -80,21 +69,3 @@ function adminlist()
 		));
 	}
 }
-
-function getgroupname($grupa)
-{
-	global $query;
-	$groups = $query->getElement('data', $query->serverGroupList());
-	$groupname = '';
-	foreach($groups as $group)
-	{
-		if ($group['sgid'] == $grupa)
-		{
-			$groupname = $group['name'];
-		}
-	}
-
-	return $groupname;
-}
-
-
