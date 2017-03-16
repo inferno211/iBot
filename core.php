@@ -30,6 +30,8 @@ if($query->getElement('success', $query->connect()))
     $query->setName($config['bot']['name']);
     $core = $query->getElement('data',$query->whoAmI());
     $query->clientMove($core['client_id'],$config['bot']['default_channel']);
+    //sendCommand("servernotifyregister event=textprivate");
+    $query->executeCommand("servernotifyregister event=textprivate");
 
     echo 'iBot version '.VERSION.'' . PHP_EOL;
 	echo 'Zaladowano '.count($config['bot']['functions']).' funkcji' . PHP_EOL;

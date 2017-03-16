@@ -8,7 +8,7 @@ function welcomemsg()
 	global $config;
 	global $clients;
 
-	$msg = fopen($config['welcomemsg']['msgpath'], "r");
+	//$msg = fopen($config['welcomemsg']['msgpath'], "r");
 
 	$clients['nowi'] = clientlist();
 
@@ -24,12 +24,15 @@ function welcomemsg()
 	{
 		foreach($clients['roznica'] as $clid) 
 		{
-			while(!feof($msg))
+			/*while(!feof($msg))
 			{
 				$line = fgets($msg);
 				$message = convertmsg($line, $clid);
 				$query->sendMessage(1, $clid, $message);
-			}
+			}*/
+			$msg = file_get_contents($config['welcomemsg']['msgpath'], "r");
+			$message = convertmsg($msg, $clid);
+			$query->sendMessage(1, $clid, $message);
 		}
 	}
 		

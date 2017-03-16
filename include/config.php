@@ -15,13 +15,13 @@ define('VERSION', '0.3 Beta');
 $teamspeak['host'] 						= '127.0.0.1'; // Host TS3
 $teamspeak['udp'] 						= '9987'; // Port TS3
 $teamspeak['tcp'] 						= '10011'; // Port Query TS3
-$teamspeak['login'] 					= ''; // Login Query TS3
-$teamspeak['password'] 					= ''; // Hasło Query TS3
+$teamspeak['login'] 					= 'serveradmin'; // Login Query TS3
+$teamspeak['password'] 					= 'Pdiel4j3'; // Hasło Query TS3
 
 $db['host'] 							= '127.0.0.1'; // Host DB
-$db['login'] 							= ''; // Login DB
-$db['password'] 						= ''; // Hasło DB
-$db['database'] 						= ''; // Baza danych
+$db['login'] 							= 'pts_tsbot'; // Login DB
+$db['password'] 						= 'q0MhxVlSDGSM3CKN'; // Hasło DB
+$db['database'] 						= 'pts_tsbot'; // Baza danych
 
 $config['bot']['name'] 					= "iBot @ BOT"; // Nazwa bota na serwerze
 $config['bot']['default_channel'] 		= 19; // kanał na jakim ma siedzieć bot
@@ -48,7 +48,8 @@ $config['bot']['functions'] 			= array(
 										'channelchecker',
 										'checkupdate',
 										'group_online',
-										'twitchstatus');
+										'twitchstatus',
+										'recordprotection');
 
 /*
 ADVERTISEMENT
@@ -294,4 +295,17 @@ Pokazuje w opisie status streama w serwisie twitch. By wyświetlać stan w "Topi
 $config['twitchstatus']['enabled'] 		= true;
 $config['twitchstatus']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
 $config['twitchstatus']['data'] 		= '1970-01-01 00:00:00';
+
+/*
+ANTY RECORD PROTECTION
+Pokazuje w opisie status streama w serwisie twitch. By wyświetlać stan w "Topic" podaj twitch=[login] gdzie [login] zamień na login z titch.tv
+*/
+$config['recordprotection']['enabled'] 			= true;
+$config['recordprotection']['interval'] 		= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['recordprotection']['aviable_groups'] 	= array(64);
+$config['recordprotection']['admins']			= array(24);
+$config['recordprotection']['data'] 			= '1970-01-01 00:00:00';
+
+
+
 ?>
