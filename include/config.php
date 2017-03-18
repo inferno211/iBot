@@ -16,12 +16,12 @@ $teamspeak['host'] 						= '127.0.0.1'; // Host TS3
 $teamspeak['udp'] 						= '9987'; // Port TS3
 $teamspeak['tcp'] 						= '10011'; // Port Query TS3
 $teamspeak['login'] 					= 'serveradmin'; // Login Query TS3
-$teamspeak['password'] 					= 'Pdiel4j3'; // Hasło Query TS3
+$teamspeak['password'] 					= ''; // Hasło Query TS3
 
 $db['host'] 							= '127.0.0.1'; // Host DB
-$db['login'] 							= 'pts_tsbot'; // Login DB
-$db['password'] 						= 'um2tcdZwr6ECOuy1'; // Hasło DB
-$db['database'] 						= 'pts_tsbot'; // Baza danych
+$db['login'] 							= ''; // Login DB
+$db['password'] 						= ''; // Hasło DB
+$db['database'] 						= ''; // Baza danych
 
 $config['bot']['name'] 					= "iBot @ BOT"; // Nazwa bota na serwerze
 $config['bot']['default_channel'] 		= 19; // kanał na jakim ma siedzieć bot

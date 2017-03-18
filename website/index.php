@@ -24,9 +24,9 @@
 		'days' => '2',
 
 		'dbhost' => '127.0.0.1',
-		'dbuser' => 'pts_tsbot',
-		'dbpass' => 'um2tcdZwr6ECOuy1',
-		'dbname' => 'pts_tsbot'
+		'dbuser' => '',
+		'dbpass' => '',
+		'dbname' => ''
 		);
 		
 	if (isset($_POST['send']) && isset($_POST['code']) && isset($_POST['uid'])) 
