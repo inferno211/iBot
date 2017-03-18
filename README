@@ -1,10 +1,10 @@
-        		iBot [v0.4 Beta]
+        		iBot [v0.5 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
       @website	 : http://github.com/inferno211
       @contact   : inferno.piotr@gmail.com
-      @date      : 10-03-2017
+      @date      : 18-03-2017
 
 
 Automatic BOT on teamspeak3 in PHP.
@@ -31,3 +31,7 @@ Functions:
 	- Automatic info about update
 	- Users from group online on chanel desc
 	- Recording protection
+	- twitch.tv channel status in channel desc
+	- hitbox.tv channel status in channel desc
+	- Automatic check premium accounts
+	- List of users premium

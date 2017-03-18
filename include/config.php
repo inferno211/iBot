@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v0.4 Beta]
+        		iBot [v0.5 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -10,18 +10,18 @@
 
 */
 
-define('VERSION', '0.4 Beta');
+define('VERSION', '0.5 Beta');
 
 $teamspeak['host'] 						= '127.0.0.1'; // Host TS3
 $teamspeak['udp'] 						= '9987'; // Port TS3
 $teamspeak['tcp'] 						= '10011'; // Port Query TS3
-$teamspeak['login'] 					= ''; // Login Query TS3
-$teamspeak['password'] 					= ''; // Hasło Query TS3
+$teamspeak['login'] 					= 'serveradmin'; // Login Query TS3
+$teamspeak['password'] 					= 'Pdiel4j3'; // Hasło Query TS3
 
 $db['host'] 							= '127.0.0.1'; // Host DB
-$db['login'] 							= ''; // Login DB
-$db['password'] 						= ''; // Hasło DB
-$db['database'] 						= ''; // Baza danych
+$db['login'] 							= 'pts_tsbot'; // Login DB
+$db['password'] 						= 'um2tcdZwr6ECOuy1'; // Hasło DB
+$db['database'] 						= 'pts_tsbot'; // Baza danych
 
 $config['bot']['name'] 					= "iBot @ BOT"; // Nazwa bota na serwerze
 $config['bot']['default_channel'] 		= 19; // kanał na jakim ma siedzieć bot
@@ -49,7 +49,10 @@ $config['bot']['functions'] 			= array(
 										'checkupdate',
 										'group_online',
 										'twitchstatus',
-										'recordprotection');
+										'recordprotection',
+										'hitboxstatus',
+										'premiumchecker',
+										'premiumlist');
 
 /*
 ADVERTISEMENT
@@ -78,7 +81,7 @@ Automatyczne powiadomienie po wejsciu na serwer
 */
 $config['host_message']['enabled'] 		= true;
 $config['host_message']['msgpath'] 		= 'messages/host_message.txt';
-$config['host_message']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 2,'seconds' => 0);
+$config['host_message']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 1,'seconds' => 0);
 $config['host_message']['data'] 		= '1970-01-01 00:00:00'; 
 
 /*
@@ -100,7 +103,7 @@ Automatyczna rejestracja po x minutach
 $config['autoregister']['enabled'] 		= true;
 $config['autoregister']['group'] 		= 23;
 $config['autoregister']['time'] 		= 30;
-$config['autoregister']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 1);
+$config['autoregister']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 1,'seconds' => 0);
 $config['autoregister']['data'] 		= '1970-01-01 00:00:00';
 
 /*
@@ -269,7 +272,7 @@ Sprawdza w podanej strefie czy kanały prywatne mają aktualną godzinę, aktual
 */
 $config['channelchecker']['enabled'] 	= true;
 $config['channelchecker']['pid'] 		= 105;
-$config['channelchecker']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 10);
+$config['channelchecker']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 30,'seconds' => 0);
 $config['channelchecker']['data'] 		= '1970-01-01 00:00:00'; 
 
 /* 
@@ -285,7 +288,7 @@ SERVER GROUP ONLINE
 Pokazuje listę osób online z danej grupy na wybranym kanale. By pokazać listę użytkowników dodaj w "Topic" show_group=[gid] gdzie [gid] zamień na numer grupy do pokazania.
 */
 $config['group_online']['enabled'] 		= true;
-$config['group_online']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['group_online']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 1,'seconds' => 0);
 $config['group_online']['data'] 		= '1970-01-01 00:00:00';
 
 /*
@@ -293,7 +296,7 @@ TWITCH STREAM STATUS
 Pokazuje w opisie status streama w serwisie twitch. By wyświetlać stan w "Topic" podaj twitch=[login] gdzie [login] zamień na login z titch.tv
 */
 $config['twitchstatus']['enabled'] 		= true;
-$config['twitchstatus']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['twitchstatus']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 3,'seconds' => 0);
 $config['twitchstatus']['data'] 		= '1970-01-01 00:00:00';
 
 /*
@@ -306,6 +309,32 @@ $config['recordprotection']['aviable_groups'] 	= array(64);
 $config['recordprotection']['admins']			= array(24);
 $config['recordprotection']['data'] 			= '1970-01-01 00:00:00';
 
+/*
+HITBOX STREAM STATUS
+Pokazuje w opisie status streama w serwisie hitbox. By wyświetlać stan w "Topic" podaj hitbox=[login] gdzie [login] zamień na login z hitbox.tv
+*/
+$config['hitboxstatus']['enabled'] 		= true;
+$config['hitboxstatus']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 3,'seconds' => 0);
+$config['hitboxstatus']['data'] 		= '1970-01-01 00:00:00';
+
+/*
+PREMIUM CHECKER
+Sprawdza czy nie upłynął użytkownikowi czas premium
+*/
+$config['premiumchecker']['enabled'] 			= true;
+$config['premiumchecker']['premiumgroup'] 		= array(24, 65, 66);
+$config['premiumchecker']['interval'] 			= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['premiumchecker']['data'] 				= '1970-01-01 00:00:00';
+
+/*
+PREMIUM LIST
+Lista użytkowników premium.
+	channel - id kanału na którym ma pokazywać listę użytkowników premium
+*/
+$config['premiumlist']['enabled'] 	= true;
+$config['premiumlist']['channel'] 	= 533;
+$config['premiumlist']['interval'] = array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 1);
+$config['premiumlist']['data'] 	= '1970-01-01 00:00:00'; 
 
 
 ?>

@@ -45,6 +45,9 @@ function top10connections()
     $desc .= '[/center]';
     $query->channelEdit($config['top10connections']['channel'], array('channel_description' => $desc));
     
+    unset($query);
+    unset($config);
+    unset($polaczenie);
 }
 
 ?> 

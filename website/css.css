@@ -1,0 +1,178 @@
+body {
+    font-size: 11px;
+    font-family: Tahoma, Arial, Verdana, Helvetica, sans-serif;
+    font-weight: normal;
+}
+#page {
+    width: 600px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #c6c6c6;
+}
+.center {
+    text-align: center;
+}
+.alert-box {
+    color: #555;
+    border-radius: 10px;
+    font-family: Tahoma, Geneva, Arial, sans-serif;
+    font-size: 11px;
+    padding: 10px 10px 10px 36px;
+    margin: 10px;
+}
+.alert-box span {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.notice {
+    background: #e3f7fc;
+    border: 1px solid #8ed9f6;
+}
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+input[type=text],
+textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+.button {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+    background: -moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background: -webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background: -o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background: -ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+    background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315', GradientType=0);
+    background-color: #d0451b;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: arial;
+    font-size: 13px;
+    padding: 6px 12px;
+    text-decoration: none;
+    border: 0px;
+}
+.button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+    background: -moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: -ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+    background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b', GradientType=0);
+    background-color: #bc3315;
+}
+.button:active {
+    position: relative;
+    top: 1px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td {
+    border: 2px solid #000000;
+    padding: 5px;
+}
+.header {
+    font-weight: bold;
+}
+table#table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#table td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    padding: 5px;
+}
+#table .header {
+    font-weight: bold;
+}
+#table .emp {}
+
+.msg {
+    margin: 0 10px 20px 10px;
+    font-family: Tahoma;
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 10px 20px;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+.msg a {
+    color: #555;
+    font-family: Tahoma;
+    text-decoration: underline;
+}
+.msg.ok {
+    background: #e0f2cb;
+    border: 1px solid #ccebac;
+    color: #6da827;
+}
+.msg.error {
+    background: #fbd3b1;
+    border: 1px solid #f5c69a;
+    color: #e54800;
+}
+.msg.alert {
+    background: #fbe47a;
+    border: 1px solid #f5c69a;
+}
+.msg.alert a {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+.msg.notice {
+    background: #DDDDDD;
+    border: 1px solid #999;
+}
+.msg.notice a {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}
+.msg2 {
+    color: #fff;
+    text-shadow: #414141 0px 0px 4px;
+    margin-bottom: 4px;
+    font-family: Tahoma;
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 10px 0 10px 20px;
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+.msg2 a {
+    color: #6da827;
+    font-family: Tahoma;
+    font-weight: normal;
+    text-decoration: underline;
+}
+.msg2.warn {
+    background: #f8a95b;
+    border: 1px solid #fe952e;
+}
+.msg2.warn a {
+    color: #666;
+    text-decoration: none;
+    font-weight: bold;
+}

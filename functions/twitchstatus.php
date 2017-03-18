@@ -29,26 +29,31 @@ function twitchstatus()
 			curl_close($tw);
 			$pleaseStream = json_decode($w);
 
-			$opis = '[center]\n';
+			
 					
 			if($pleaseStream->stream != null)
 			{
-				$opis.= '\n[size=16][color=orange][b]'.$pleaseUser->display_name.'[/b][/color][/size]\n';
-				$opis.= '[size=16][color=green][b]ONLINE[/b][/color][/size]\n';
-				$opis.= '\n[size=16][b][url]' .$pleaseStream->stream->channel->url. '[/url][/b][/size]\n';
-				$opis.= '\n[size=10][b]Obecnie gra w: \n[color=#5555ff]' .$pleaseStream->stream->channel->game. '[/color][/b][/size]\n';
-				$opis.= '\n[size=10][b]Obecnie oglądających: \n[color=#5555ff]' .$pleaseStream->stream->viewers. '[/color][/b][/size]\n';
-				$opis.= '\n[size=10][b]Obecne followy: \n[color=#5555ff]' .$pleaseStream->stream->channel->followers. '[/color][/b][/size]\n';
-				$opis.= '\n[size=10][b]Łącznie posiada wyświetleń: \n[color=#5555ff]' .$pleaseStream->stream->channel->views. '[/color][/b][/size]\n';
-				$opis.= '\n[size=10][b]Jego aktualny status: \n[color=#5555ff]' .$pleaseStream->stream->channel->status. '[/color][/b][/size]\n';
-				$opis.= '\n[size=10][b]Ujęcie ze streama: \n\n[img]' .$pleaseStream->stream->preview->medium. '[/img][/b][/size]\n';
+				$opis = '[center]\n';
+				$opis.= '[size=14][color=orange][b]'.$pleaseUser->display_name.'[/b][/color][/size]\n\n';
+				$opis.= '[B]Status:[/B] [color=green][b]ONLINE[/b][/color]\n';
+				$opis.= '[B]Link do profilu:[/B] [URL='.$pleaseStream->stream->channel->url.']tutaj[/URL]\n';
+				$opis.= '[B]Obecnie gra w:[/B] '.$pleaseStream->stream->channel->game.'\n';
+				$opis.= '[B]Obecnie oglądających:[/B] '.$pleaseStream->stream->viewers.'\n';
+				$opis.= '[B]Followy:[/B] '.$pleaseStream->stream->channel->followers.'\n';
+				$opis.= '[B]Wyświetlenia:[/B] '.$pleaseStream->stream->channel->views.'\n';
+				$opis.= '[B]Status:[/B] '.$pleaseStream->stream->channel->status.'\n';
+				$opis.= '\n[B]Ujęcie z streama[/B]\n[img]' .$pleaseStream->stream->preview->medium. '[/img]';
+				$opis.= '\n[/center]';
 			}
 			else
 			{
-				$opis.= '[size=16][b][color=orange]'.$pleaseUser->display_name.'[/color][/b][/size]\n[size=14][color=red][b]OFFLINE[/b][/color][/size]\n';
-				$opis.= '\n[img]'.$pleaseUser->logo.'[/img]\n';
+				$opis = '[center]\n';
+				$opis.= '[size=16][color=orange][b]'.$pleaseUser->display_name.'[/b][/color][/size]\n\n';
+				$opis.= '[B]Link do profilu:[/B] [URL=http://www.twitch.tv/'.$login.']tutaj[/URL]\n';
+				$opis.= '[B]Status:[/B] [color=red][b]OFFLINE[/b][/color]\n';
+				$opis.= '\n[/center]';
 			}
-			$opis.= '\n[/center]';
+			
 			
 			$query->channelEdit($channel['cid'], array(
 				'channel_description' => $opis

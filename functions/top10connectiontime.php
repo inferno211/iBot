@@ -53,6 +53,9 @@ function top10connectiontime()
         'channel_description' => $desc
     ));
     
+    unset($query);
+    unset($config);
+    unset($polaczenie);
 }
 
 ?> 
