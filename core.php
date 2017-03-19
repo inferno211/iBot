@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v0.4 Beta]
+        		iBot [v0.6 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -13,11 +13,17 @@
 date_default_timezone_set('Europe/Warsaw');
 ini_set('default_charset', 'UTF-8');
 setlocale(LC_ALL, 'UTF-8');
+ini_set('memory_limit', '-1');
 
 include_once 'include/config.php';
 include_once 'include/ts3admin.class.php';
 
 foreach (glob("functions/*.php") as $filename)
+{
+    include_once $filename;
+}
+
+foreach (glob("command/*.php") as $filename)
 {
     include_once $filename;
 }
@@ -30,8 +36,6 @@ if($query->getElement('success', $query->connect()))
     $query->setName($config['bot']['name']);
     $core = $query->getElement('data',$query->whoAmI());
     $query->clientMove($core['client_id'],$config['bot']['default_channel']);
-    //sendCommand("servernotifyregister event=textprivate");
-    $query->executeCommand("servernotifyregister event=textprivate");
 
     echo 'iBot version '.VERSION.'' . PHP_EOL;
 	echo 'Zaladowano '.count($config['bot']['functions']).' funkcji' . PHP_EOL;

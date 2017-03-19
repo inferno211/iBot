@@ -1,4 +1,4 @@
-        		iBot [v0.5 Beta]
+        		iBot [v0.6 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -35,3 +35,7 @@ Functions:
 	- hitbox.tv channel status in channel desc
 	- Automatic check premium accounts
 	- List of users premium
+	- Private channel information
+	- Commands (help, meeting, check)
+	- Channel protection
+	- Server automatic banner in banner folder

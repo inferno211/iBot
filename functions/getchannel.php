@@ -8,7 +8,7 @@ function getchannel()
 {
 	global $config;
 	global $query;
-	$clients = $query->getElement('data', $query->clientList('-groups'));
+	$clients = $query->getElement('data', $query->clientList('-groups -uid'));
 	foreach($clients as $client)
 	{
 		$channel = $query->getElement('data', $query->channelList('-topic -limits'));
@@ -46,19 +46,17 @@ function getchannel()
 						if($channels['channel_topic']=='wolny' && $canget)
 						{
 							$query->sendMessage(1, $client['clid'], '\n[b]Zostałeś przeniesiony na Twój nowy kanał[/b].\n\nZostały stworzone [b]'.$config['getchannel']['sub_channels'].'[/b] podkanały.\n\nInstrukcja postępowania:\n1. Zmień hasło\n2. Zmień nazwe kanału\n3. Przeczytaj instrukcję obsługi kanału oraz zasadu użytkowania.\n\nŻyczymy miłych rozmów!');
-							
-							echo 'test';
 
 							$query->clientMove($client['clid'], $channels['cid']);
 							$query->setClientChannelGroup($config['getchannel']['channel_group'], $channels['cid'], $client['client_database_id']);
 							$number = (integer)$channels['channel_name'];
 							$desc = '[hr][center]Numer kanału: [b]'.$number.'[/b]
-									Właściciel: [b]'.$client['client_nickname'].'[/b]
+									Właściciel: [b][URL=client://'.$client['clid']."/".$client['client_unique_identifier'].']'.$client['client_nickname'].'[/URL][/b]
 									Data założenia: [b]'.date("d.m.y", time()).'[/b]
 									Administrator: [b]'.$config['bot']['name'].'[/b][/center][hr]';
 							
 							$query->channelEdit($channels['cid'], array('channel_name' => ''.$number.'. Kanal '.$client['client_nickname'].''));
-							$time = strtotime("+7 days",time());
+							$time = strtotime("+5 days",time());
 							$query->channelEdit($channels['cid'], array('channel_description' => $desc, 'channel_flag_maxclients_unlimited'=>1, 'channel_flag_maxfamilyclients_unlimited'=>1, 'channel_flag_maxfamilyclients_inherited'=>0, 'channel_topic'=>''.$time.''));
 							for($i=0; $i<$config['getchannel']['sub_channels']; $i++)
 							{

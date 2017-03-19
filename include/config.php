@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v0.5 Beta]
+        		iBot [v0.6 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -10,12 +10,12 @@
 
 */
 
-define('VERSION', '0.5 Beta');
+define('VERSION', '0.6 Beta');
 
 $teamspeak['host'] 						= '127.0.0.1'; // Host TS3
 $teamspeak['udp'] 						= '9987'; // Port TS3
 $teamspeak['tcp'] 						= '10011'; // Port Query TS3
-$teamspeak['login'] 					= 'serveradmin'; // Login Query TS3
+$teamspeak['login'] 					= ''; // Login Query TS3
 $teamspeak['password'] 					= ''; // Hasło Query TS3
 
 $db['host'] 							= '127.0.0.1'; // Host DB
@@ -52,7 +52,10 @@ $config['bot']['functions'] 			= array(
 										'recordprotection',
 										'hitboxstatus',
 										'premiumchecker',
-										'premiumlist');
+										'premiumlist',
+										'channelprotection',
+										'channelinfo',
+										'commander');
 
 /*
 ADVERTISEMENT
@@ -100,7 +103,7 @@ Automatyczna rejestracja po x minutach
 	group - grupa zarejestrowanych
 	time - po ilu minutach nadać
 */
-$config['autoregister']['enabled'] 		= true;
+$config['autoregister']['enabled'] 		= false;
 $config['autoregister']['group'] 		= 23;
 $config['autoregister']['time'] 		= 30;
 $config['autoregister']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 1,'seconds' => 0);
@@ -320,10 +323,11 @@ $config['hitboxstatus']['data'] 		= '1970-01-01 00:00:00';
 /*
 PREMIUM CHECKER
 Sprawdza czy nie upłynął użytkownikowi czas premium
+	premiumgroup - grupy jakie przysługują użytkownikowi premium
 */
 $config['premiumchecker']['enabled'] 			= true;
 $config['premiumchecker']['premiumgroup'] 		= array(24, 65, 66);
-$config['premiumchecker']['interval'] 			= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['premiumchecker']['interval'] 			= array('days' => 0,'hours' => 0,'minutes' => 3,'seconds' => 0);
 $config['premiumchecker']['data'] 				= '1970-01-01 00:00:00';
 
 /*
@@ -333,8 +337,72 @@ Lista użytkowników premium.
 */
 $config['premiumlist']['enabled'] 	= true;
 $config['premiumlist']['channel'] 	= 533;
-$config['premiumlist']['interval'] = array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 1);
+$config['premiumlist']['interval'] = array('days' => 0,'hours' => 0,'minutes' => 1,'seconds' => 0);
 $config['premiumlist']['data'] 	= '1970-01-01 00:00:00'; 
+
+/*
+CHANNEL PROTECTION
+Blokuje wchodzenie na kanał gdy nie posiada się danej rangi. By zablokować w "Topic" podaj protect=[group id] gdzie [group id] zamień na ID grupy
+	admingroup - id grup których nie będzie bot sprawdzał
+*/
+$config['channelprotection']['enabled'] 	= true;
+$config['channelprotection']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 1);
+$config['channelprotection']['data'] 		= '1970-01-01 00:00:00';
+$config['channelprotection']['admingroup'] 	= array(13,39,40,41,43,42);
+
+/*
+CHANNELS INFO
+Pokazuje jakie kanały są do usunięcia a jakie wolne.
+	channel - kanał na jakim ma to pokazywać
+	pid - id kanału w którym znajduje się strefa kanałów
+*/
+$config['channelinfo']['enabled'] 	= true;
+$config['channelinfo']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 5,'seconds' => 0);
+$config['channelinfo']['data'] 		= '1970-01-01 00:00:00';
+$config['channelinfo']['channel'] 	= 470;
+$config['channelinfo']['pid'] 		= 105;
+
+/*
+COMMANDER
+Komendy serwerowe działają tylko na kanałach gdzie w topicu wpisane jest 'commander';
+*/
+$config['commander']['enabled'] 	= true;
+$config['commander']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
+$config['commander']['data'] 		= '1970-01-01 00:00:00';
+
+
+$config['commander']['commands_list'] = array ('help','meeting','check');
+$config['commander']['commands'] = array(
+	'help' => array('description' => 'Wyswietla listę komend',
+					'usage' => '!help',
+					'output' => '
+					!help - Wyswietla liste komend
+					!meeting - Przenosi administracje na wybrany kanal
+					!check - Sprawdza poprawność prywatnych kanałów',
+				    'allowed_groups' => array(13) //Grupy, które mogą korzystać z komendy
+	),
+	'check' => array('description' => 'Sprawdza poprawność prywatnych kanałów',
+					'usage' => '!check',
+					'output' => 'Wykonano sprawdzenie',
+				    'allowed_groups' => array(13) //Grupy, które mogą korzystać z komendy
+	),
+	'meeting' => array('description' => 'Przeniosi wybrane grupy na kanal zebrania',
+					   'usage' => '!meeting',
+					   'output' => 'Przeniesiono administracje na kanal zebrania',
+					   'groups' => array(23),
+					   'channel' => 2682,
+					   'allowed_groups' => array(13) //Grupy, które mogą korzystać z komendy
+	));
+
+
+
+
+
+
+
+
+
+
 
 
 ?>

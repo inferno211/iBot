@@ -41,7 +41,8 @@ function group_online()
 
 					if ($online)
 					{
-						$desc.= '[size=10][url=client://' . $client['clid'] . '/' . $groupclient['client_unique_identifier'] . '][b]' . $groupclient['client_nickname'] . '[/b][/url] jest aktualnie [color=green][b]ONLINE[/b][/color][/size]\n';
+						$user_channel = $query->getElement('data', $query->channelInfo($client['cid']));
+						$desc.= "[size=10][url=client://".$client['clid']."/".$groupclient['client_unique_identifier']."][b]".$groupclient['client_nickname']."[/b][/url] jest aktualnie [color=green][b]ONLINE[/b][/color] na kanale [B][URL=channelID://".$client['cid']."]".$user_channel['channel_name']."[/URL][/B][/size]\n";
 							
 					}
 					else

@@ -31,7 +31,7 @@ function channelchecker()
                 if ($channels['total_clients'] != 0) 
                 {
                     $timestamp             = time();
-                    $expiredate            = strtotime("+3 days", $timestamp); 
+                    $expiredate            = strtotime("+5 days", $timestamp); 
                     $data                  = array();
                     $data['channel_topic'] = $expiredate;
                     $query->channelEdit($channels['cid'], $data);
@@ -75,7 +75,7 @@ function channelchecker()
                 if ($channels['total_clients'] != 0) 
                 {
                     $timestamp             = time();
-                    $expiredate            = strtotime("+3 days", $timestamp);
+                    $expiredate            = strtotime("+5 days", $timestamp);
                     $data                  = array();
                     $data['channel_topic'] = $expiredate;
                     $query->channelEdit($main, $data);
