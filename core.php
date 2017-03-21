@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v0.6 Beta]
+        		iBot [v0.7 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel

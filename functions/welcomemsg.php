@@ -8,8 +8,6 @@ function welcomemsg()
 	global $config;
 	global $clients;
 
-	//$msg = fopen($config['welcomemsg']['msgpath'], "r");
-
 	$clients['nowi'] = clientlist();
 
 	if($config['welcomemsg']['data']=='1970-01-01 00:00:00')
@@ -24,14 +22,24 @@ function welcomemsg()
 	{
 		foreach($clients['roznica'] as $clid) 
 		{
-			/*while(!feof($msg))
-			{
-				$line = fgets($msg);
-				$message = convertmsg($line, $clid);
-				$query->sendMessage(1, $clid, $message);
-			}*/
 			$msg = file_get_contents($config['welcomemsg']['msgpath'], "r");
 			$message = convertmsg($msg, $clid);
+
+/*
+			if($config['getchannel']['enabled'])
+			{
+				$message.= '\n\n[B]Kanał prywatny[/B]\n';
+				$kanaly = $query->getElement('data', $query->channelList());
+				foreach ($kanaly as $kanal) 
+				{
+					$uzytkownicy = $query->getElement('data', $query->channelGroupClientList($kanal['cid'], $clid, $config['getchannel']['channel_group']));
+					echo '<pre>';
+					print_r($uzytkownicy);
+					echo '</pre>';
+				}
+			}
+*/
+
 			$query->sendMessage(1, $clid, $message);
 		}
 	}

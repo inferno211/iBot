@@ -1,7 +1,7 @@
 <?php
 /*
 
-        		iBot [v0.6 Beta]
+        		iBot [v0.7 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -10,7 +10,7 @@
 
 */
 
-define('VERSION', '0.6 Beta');
+define('VERSION', '0.7 Beta');
 
 $teamspeak['host'] 						= '127.0.0.1'; // Host TS3
 $teamspeak['udp'] 						= '9987'; // Port TS3
@@ -19,7 +19,7 @@ $teamspeak['login'] 					= ''; // Login Query TS3
 $teamspeak['password'] 					= ''; // Hasło Query TS3
 
 $db['host'] 							= '127.0.0.1'; // Host DB
-$db['login'] 							= ''; // Login DB
+$db['login'] 							= 'pts_tsbot'; // Login DB
 $db['password'] 						= ''; // Hasło DB
 $db['database'] 						= ''; // Baza danych
 
@@ -366,7 +366,14 @@ $config['channelinfo']['pid'] 		= 105;
 COMMANDER
 Komendy serwerowe działają tylko na kanałach gdzie w topicu wpisane jest 'commander';
 */
-$config['commander']['enabled'] 	= true;
+
+/*
+
+UWAGA FUNKCJA TESTOWA KTÓRA ZAWIERA BŁĘDY! NIE UŻYWAJ JEJ NA SERWERACH PUBLICZNY, LECZ TYLKO DO TESTÓW!
+
+*/
+
+$config['commander']['enabled'] 	= false;
 $config['commander']['interval'] 	= array('days' => 0,'hours' => 0,'minutes' => 0,'seconds' => 3);
 $config['commander']['data'] 		= '1970-01-01 00:00:00';
 

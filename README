@@ -1,4 +1,4 @@
-        		iBot [v0.6 Beta]
+        		iBot [v0.7 Beta]
       Copyright (C) 2017 Piotr 'Inferno' Grencel
  
       @author    : Piotr 'Inferno' Grencel
@@ -36,6 +36,6 @@ Functions:
 	- Automatic check premium accounts
 	- List of users premium
 	- Private channel information
-	- Commands (help, meeting, check)
+	- Commands (help, meeting, check) UNSTABLE, DO NOT USE IT ON LIVE SERVER
 	- Channel protection
 	- Server automatic banner in banner folder
